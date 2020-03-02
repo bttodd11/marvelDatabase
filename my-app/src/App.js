@@ -6,7 +6,7 @@ import Image from './component/image/Image.js';
 function App() {
   return (
   <div>
-      <Title />,
+      <Title />
       <Image />
   </div>
 

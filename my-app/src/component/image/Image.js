@@ -17,6 +17,7 @@ class Image extends React.Component {
     this.state = {
       data: null,
       isLoaded: false,
+      loading: true,
       char: []
     };
 
@@ -31,7 +32,7 @@ const pubKey = 'd3c4d49ca5140158b141102b27d684ae&';
 const hash = '9674d68e3057ba20fef81d98f535e7eb&limit=100';
 const date = '1&';
 const limit = '&limit=' + 100;
-const offsetLimit = 10;
+const offsetLimit = 15;
 let offset = 0;
 const url = API + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash + limit + '&offset='
 // const response = await fetch(url)
@@ -47,6 +48,7 @@ for (let index = 0; index < offsetLimit; index++) {
 this.setState({
   isLoaded: true,
   char: char,
+  loading: false,
 })
 
 console.log(char)
@@ -62,22 +64,33 @@ console.log(char)
 
   render() {
     const { error, isLoaded, char } = this.state;
-    // const filteredData = char.filter(char => char.thumbnail.path !== notAva );
+    const filteredData = char.filter(char => char.thumbnail.path !== notAva );
 
     console.log(char)
     return (
+      <div>
+        {this.state.loading || !this.state.char ? (
+          <div>
+            <button class="buttonLoad">
+              <i class="fa fa-circle-o-notch fa-spin fa-5x"></i>
+           </button>
+          </div>
+      ) : (
         <Container>
         <Row>
-          {char.map(char => (<Col md="3"> 
+          {filteredData.map(char => 
+          (<Col md="3"> 
           <p>{char.name}</p>
-          {/* <img src={char.thumbnail.path + "/standard_large.jpg"} />{"\n"} */}
-          {/* <p>{char.description}</p> */}
+          { <img src={char.thumbnail.path + "/standard_large.jpg"} />}{"\n"}
           </Col>))}
-
+        
         </Row>
         </Container>
-    )
-}
-}
+      
+
+      )}</div>
+    )}}
+          
+
 
 export default Image;
