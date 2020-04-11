@@ -3,8 +3,14 @@ h1 {
   font-family: "Caveat", cursive;
   text-align: center;
 }
-p {
-  font-size: 18px;
+.navInfo {
+  font-size: 20px;
   font-family: "Caveat", cursive;
-  text-align: center;
+  text-align: right;
+  letter-spacing: 1px;
+}
+.navbar-brand{
+  font-family: "Caveat", cursive;
+  font-size: 20px;
+  letter-spacing: 1px;
 }

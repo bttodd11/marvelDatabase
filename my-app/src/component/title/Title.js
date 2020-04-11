@@ -1,13 +1,19 @@
 import React from "react";
 import './Title.css';
+import logo from './img/humanTorch.svg'
 
 class Title extends React.Component {
   render() {
     return (
       <div>
-      <h1>Marvel Database </h1>
-      <p>“Just because something works, doesn’t mean it can’t be improved.”</p>
+    <nav className="navbar navbar-light bg-light">
+      <a className="navbar-brand" href="#">
+      <img src={logo} width="1" height="45" className="d-inline-block align-left" alt=""/> Marvel Database 
+     </a>
+     <p className="navInfo">“Just because something works, doesn’t mean it can’t be improved.”</p>
+    </nav>
       </div>
+
     )
   }
 }

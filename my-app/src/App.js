@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import Title from './component/title/Title.js';
-import Image from './component/image/Image.js';
+import Search from './component/search/Search.js'
+
 
 function App() {
   return (
   <div>
       <Title />
-      <Image />
+      <Search />
   </div>
 
 
