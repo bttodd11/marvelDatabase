@@ -4,7 +4,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './Search.css';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import NotFound from '../notfound/notfound.js'
+import NotFound from '../notfound/notfound.js';
+import PreLoader from '../preload/preload.js';
+import Logo from '../logo/logo.js'
+
 
 
 class search extends React.Component {
@@ -17,6 +20,7 @@ class search extends React.Component {
       url: null,
       loaded: false,
       notFound: false,
+      logo: true,
     };
     this.searchChar = this.searchChar.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -27,19 +31,27 @@ class search extends React.Component {
 
     this.setState({
       loaded: true,
+      logo: false,
     })
 
 
     let value = this.state.basicAddon1.toLowerCase();
     const foundSearch = [];
     const url = this.state.url;
-    const offsetLimit = 15;
+    const offsetLimit = 5;
+    const searchIndex = value.charAt(0)
+
+    let newUrl = url.replace("tempKey", searchIndex);
+    console.log(newUrl)
+
+    
 
 
 
     for (let index = 0; index < offsetLimit; index++) {
-      const response = await fetch(url + index * 100)
+      const response = await fetch(newUrl + index * 100)
       const data = await response.json();
+      console.log(data)
 
 
       for (let charName = 0; charName < data.data.results.length; charName++) {
@@ -72,13 +84,14 @@ class search extends React.Component {
 
   componentDidMount() {
 
-    const API = 'https://gateway.marvel.com/v1/public/characters?';
+    const API = 'https://gateway.marvel.com/v1/public/characters?nameStartsWith=';
+    const key = 'tempKey&';
     const pubKey = 'd3c4d49ca5140158b141102b27d684ae&';
     const hash = '9674d68e3057ba20fef81d98f535e7eb&limit=100';
     const date = '1&';
     const limit = '&limit=' + 100;
 
-    const url = API + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash + limit + '&offset='
+    let url = API + key + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash + limit + '&offset='
 
     this.setState({
       url: url,
@@ -88,48 +101,37 @@ class search extends React.Component {
 
 
   render() {
-
-    // const filteredData = char.filter(char => char.thumbnail.path !== notAva );
     const { foundSearch } = this.state;
+    const { logo } = this.state;
 
     if (this.state.loaded || !this.state.foundSearch) {
       return (
-        <div className="searchBar">
-          <div>
-            <div>
-              <button className="buttonLoad">
-                <i className="fa fa-circle-o-notch fa-spin fa-5x"></i>
-                <br />
-                <p className="preLoader">Searching Database</p>
-              </button>
-            </div>
-          </div>
-        </div>
+        <PreLoader /> 
       )
     }
     else if (this.state.notFound) {
       return (
-      <NotFound />
+        <NotFound />
       )
     }
+  
     else if (this.state.foundSearch) {
       return (
         <div className="searchBar">
+          {this.state.logo ? <Logo /> : null}
           <form>
             <div>
               <Container>
                 <Row>
                   {foundSearch.map(char =>
                     (<Col md="12">
-                      <p className="charName">{char.name}</p>
-                      {<img src={char.thumbnail.path + "/standard_medium.jpg"} />}
+                      <p className="charName" key = {char.name} />
+                      {<img src={char.thumbnail.path + "/detail.jpg"} />}
                       {"\n"}
-                      <p className="charDetails">{char.description}</p>
+                      <p className="charDetails" key = {char.description} />
                       <br />
-                      <p className="charDetails">{char.name} has appeared in {char.comics.available} different Marvel comics.</p>
-
+                      <p className="charDetails"> {char.name}  has appeared in {char.comics.available} different Marvel comics. </p>
                     </Col>))}
-
                 </Row>
               </Container>
               <InputGroup className="mb-3">

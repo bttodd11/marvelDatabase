@@ -20,7 +20,7 @@
     font-family: "Caveat", cursive;
 }
 .charDetails{
-    font-size: 20px;
+    font-size: 40px;
     font-family: "Caveat", cursive;
 }
 img{
@@ -31,3 +31,6 @@ img{
     width: 50%;
     border-radius: 25px;
     }
+.marvel{
+    margin-bottom: 100%;
+}

@@ -4,14 +4,15 @@ import Title from './component/title/Title.js';
 import Search from './component/search/Search.js'
 
 
+
+
+
 function App() {
   return (
   <div>
       <Title />
       <Search />
   </div>
-
-
   );
 }
 
