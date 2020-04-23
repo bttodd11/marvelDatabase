@@ -125,12 +125,14 @@ class search extends React.Component {
                 <Row>
                   {foundSearch.map(char =>
                     (<Col md="12">
-                      <p className="charName" key = {char.name} />
+                      <p className="charName"> key = {char.name} </p>
                       {<img src={char.thumbnail.path + "/detail.jpg"} />}
                       {"\n"}
-                      <p className="charDetails" key = {char.description} />
+                      <p className="charDetails"> {char.description} </p>
                       <br />
                       <p className="charDetails"> {char.name}  has appeared in {char.comics.available} different Marvel comics. </p>
+
+                      <p className="charDetails">{char.comics.items.name} </p>
                     </Col>))}
                 </Row>
               </Container>

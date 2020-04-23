@@ -14,13 +14,14 @@
 .preLoader{
     font-size: 50px;
     font-family: "Caveat", cursive;
+    opacity: .5;
 }
 .charName{
     font-size: 50px;
     font-family: "Caveat", cursive;
 }
 .charDetails{
-    font-size: 40px;
+    font-size: 20px;
     font-family: "Caveat", cursive;
 }
 img{
