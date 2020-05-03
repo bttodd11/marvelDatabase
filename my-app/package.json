@@ -14,8 +14,8 @@
   },
   "homepage": "https://bttodd11.github.io/marvelDatabase/my-app/",
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "./node_modules/react-scripts/bin/react-scripts.js  start",
     "build": "./node_modules/react-scripts/bin/react-scripts.js   build",
     "test": "./node_modules/react-scripts/bin/react-scripts.js   test",
@@ -35,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
