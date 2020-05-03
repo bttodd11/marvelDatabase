@@ -42,7 +42,7 @@ class search extends React.Component {
     const searchIndex = value.charAt(0)
 
     let newUrl = url.replace("tempKey", searchIndex);
-    console.log(newUrl)
+
 
     
 
@@ -59,6 +59,7 @@ class search extends React.Component {
 
         if (character === value.replace(/[\W]/g, "")) {
           foundSearch.push(data.data.results[charName]);
+          console.log(data.data.results[charName])
           this.setState({
             foundSearch: foundSearch,
             loaded: false,
@@ -125,14 +126,13 @@ class search extends React.Component {
                 <Row>
                   {foundSearch.map(char =>
                     (<Col md="12">
-                      <p className="charName"> key = {char.name} </p>
+                      <p className="charName">{char.name} </p>
                       {<img src={char.thumbnail.path + "/detail.jpg"} />}
                       {"\n"}
                       <p className="charDetails"> {char.description} </p>
                       <br />
                       <p className="charDetails"> {char.name}  has appeared in {char.comics.available} different Marvel comics. </p>
 
-                      <p className="charDetails">{char.comics.items.name} </p>
                     </Col>))}
                 </Row>
               </Container>
