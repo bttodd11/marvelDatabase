@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "gh-pages":"2.2.0",
     "create-react-component": "0.0.4",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
