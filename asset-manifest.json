@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/marvelDatabase/my-app/static/css/main.cd32fa61.chunk.css",
+    "main.js": "/marvelDatabase/my-app/static/js/main.a70578a8.chunk.js",
+    "main.js.map": "/marvelDatabase/my-app/static/js/main.a70578a8.chunk.js.map",
+    "runtime-main.js": "/marvelDatabase/my-app/static/js/runtime-main.98ade411.js",
+    "runtime-main.js.map": "/marvelDatabase/my-app/static/js/runtime-main.98ade411.js.map",
+    "static/css/2.17e5ed98.chunk.css": "/marvelDatabase/my-app/static/css/2.17e5ed98.chunk.css",
+    "static/js/2.149c0cc8.chunk.js": "/marvelDatabase/my-app/static/js/2.149c0cc8.chunk.js",
+    "static/js/2.149c0cc8.chunk.js.map": "/marvelDatabase/my-app/static/js/2.149c0cc8.chunk.js.map",
+    "index.html": "/marvelDatabase/my-app/index.html",
+    "precache-manifest.b03cc98b94355b408f83e3cf863a0fda.js": "/marvelDatabase/my-app/precache-manifest.b03cc98b94355b408f83e3cf863a0fda.js",
+    "service-worker.js": "/marvelDatabase/my-app/service-worker.js",
+    "static/css/2.17e5ed98.chunk.css.map": "/marvelDatabase/my-app/static/css/2.17e5ed98.chunk.css.map",
+    "static/css/main.cd32fa61.chunk.css.map": "/marvelDatabase/my-app/static/css/main.cd32fa61.chunk.css.map",
+    "static/media/humanTorch.svg": "/marvelDatabase/my-app/static/media/humanTorch.d2e5710d.svg",
+    "static/media/loader.png": "/marvelDatabase/my-app/static/media/loader.a4499a16.png",
+    "static/media/marvelLogo.png": "/marvelDatabase/my-app/static/media/marvelLogo.ce46b0ef.png",
+    "static/media/notFound.png": "/marvelDatabase/my-app/static/media/notFound.9c895778.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.98ade411.js",
+    "static/css/2.17e5ed98.chunk.css",
+    "static/js/2.149c0cc8.chunk.js",
+    "static/css/main.cd32fa61.chunk.css",
+    "static/js/main.a70578a8.chunk.js"
+  ]
+}
