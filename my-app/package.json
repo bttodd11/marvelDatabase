@@ -12,7 +12,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.2.0"
   },
-  "homepage": "https://github.com/bttodd11/marvelDatabase/my-app",
+  "homepage": "https://bttodd11.github.io/marvelDatabase/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
