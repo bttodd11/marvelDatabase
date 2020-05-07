@@ -7,6 +7,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import NotFound from '../notfound/notfound.js';
 import PreLoader from '../preload/preload.js';
 import Logo from '../logo/logo.js'
+import Comics from '../comics/comics.js';
 
 
 
@@ -21,6 +22,7 @@ class search extends React.Component {
       loaded: false,
       notFound: false,
       logo: true,
+      comics: [],
     };
     this.searchChar = this.searchChar.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -37,6 +39,7 @@ class search extends React.Component {
 
     let value = this.state.basicAddon1.toLowerCase();
     const foundSearch = [];
+    const comics = [];
     const url = this.state.url;
     const offsetLimit = 5;
     const searchIndex = value.charAt(0)
@@ -51,7 +54,6 @@ class search extends React.Component {
     for (let index = 0; index < offsetLimit; index++) {
       const response = await fetch(newUrl + index * 100)
       const data = await response.json();
-      console.log(data)
 
 
       for (let charName = 0; charName < data.data.results.length; charName++) {
@@ -59,10 +61,12 @@ class search extends React.Component {
 
         if (character === value.replace(/[\W]/g, "")) {
           foundSearch.push(data.data.results[charName]);
-          console.log(data.data.results[charName])
+          comics.push(data.data.results[charName].comics.items)
+          console.log(comics)
           this.setState({
             foundSearch: foundSearch,
             loaded: false,
+            comics: comics,
           })
           return;
         }
@@ -103,7 +107,6 @@ class search extends React.Component {
 
   render() {
     const { foundSearch } = this.state;
-    const { logo } = this.state;
 
     if (this.state.loaded || !this.state.foundSearch) {
       return (
@@ -127,15 +130,18 @@ class search extends React.Component {
                   {foundSearch.map(char =>
                     (<Col md="12">
                       <p className="charName">{char.name} </p>
-                      {<img src={char.thumbnail.path + "/detail.jpg"} />}
+                      <a href={char.urls[1].url}><img src={char.thumbnail.path + "/detail.jpg"} />
+                      </a>
+
                       {"\n"}
                       <p className="charDetails"> {char.description} </p>
                       <br />
-                      <p className="charDetails"> {char.name}  has appeared in {char.comics.available} different Marvel comics. </p>
+                      <p className="charDetails"> {char.name}  has appeared in {char.comics.available} different Marvel comics.</p>
 
                     </Col>))}
-                </Row>
+                    </Row>
               </Container>
+              <Comics />
               <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                   <InputGroup.Text id="basic-addon1">Character Search</InputGroup.Text>
@@ -145,7 +151,6 @@ class search extends React.Component {
                   aria-label="Character Name"
                   aria-describedby="basic-addon1"
                   onChange={this.handleChange}
-
                   value={this.state.basicAddon1 ? this.state.basicAddon1 : ""}
                 />
               </InputGroup>
