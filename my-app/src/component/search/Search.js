@@ -11,6 +11,7 @@ import Comics from '../comics/comics.js';
 
 
 
+
 class search extends React.Component {
   constructor(props) {
     super(props);
@@ -26,57 +27,65 @@ class search extends React.Component {
     };
     this.searchChar = this.searchChar.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.fetchData = this.fetchData.bind(this);
   }
 
-  async searchChar() {
 
 
-    this.setState({
-      loaded: true,
-      logo: false,
-    })
-
-
-    let value = this.state.basicAddon1.toLowerCase();
-    const foundSearch = [];
-    const comics = [];
-    const url = this.state.url;
-    const offsetLimit = 5;
-    const searchIndex = value.charAt(0)
-
-    let newUrl = url.replace("tempKey", searchIndex);
-
-
+    fetchData = (url, index) => {
+      fetch(url + index * 100)
+      .then(response => response.json())
+        .then( data => this.setState({data: data}))
+        }
     
 
+    searchChar = () => {
+      this.setState({
+        loaded: true,
+        logo: false,
+        notFound: false,
+      })
+  
+      let value = this.state.basicAddon1.toLowerCase();
+      const foundSearch = [];
+      const comics = [];
+      const url = this.state.url;
+      const offsetLimit = 5;
+      const searchIndex = value.charAt(0)  
+      let searchUrl = url.replace("tempKey", searchIndex);
+  
+ 
+          for(let apiSearch = 0; apiSearch < offsetLimit; apiSearch++){
+            this.fetchData(searchUrl, apiSearch);
 
+            console.log(this)
+          //     for(let charName = 0; charName < this.state.data.total; charName++){
+          //      if(this.data.results[charName].name.toLowerCase().replace(/[\W]/g, "") == value.replace(/[\W]/g, "")){
+          //       console.log(this.data)
+          //      }
+          // }
+    
+              
+              // .name.toLowerCase().replace(/[\W]/g, "");
 
-    for (let index = 0; index < offsetLimit; index++) {
-      const response = await fetch(newUrl + index * 100)
-      const data = await response.json();
+              // if (character === value.replace(/[\W]/g, "")) {
+              //   foundSearch.push(result.data.results[charName]);
 
-
-      for (let charName = 0; charName < data.data.results.length; charName++) {
-        let character = data.data.results[charName].name.toLowerCase().replace(/[\W]/g, "");
-
-        if (character === value.replace(/[\W]/g, "")) {
-          foundSearch.push(data.data.results[charName]);
-          comics.push(data.data.results[charName].comics.items)
-          console.log(comics)
-          this.setState({
-            foundSearch: foundSearch,
-            loaded: false,
-            comics: comics,
-          })
-          return;
-        }
-      }
-    }
-    this.setState({
-      notFound: true,
-      loaded: false,
-    })
+              //   this.setState({
+              //     foundSearch: foundSearch,
+              //     loaded: false,
+              //     comics: comics,
+              //   })
+              //   return;
+              // }
+            
+            this.setState({
+              notFound: true,
+              loaded: false,
+            })
   }
+}
+
 
 
   handleChange = (event) => {
@@ -84,8 +93,6 @@ class search extends React.Component {
       basicAddon1: event.target.value
     });
   }
-
-
 
   componentDidMount() {
 
@@ -95,7 +102,6 @@ class search extends React.Component {
     const hash = '9674d68e3057ba20fef81d98f535e7eb&limit=100';
     const date = '1&';
     const limit = '&limit=' + 100;
-
     let url = API + key + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash + limit + '&offset='
 
     this.setState({
@@ -106,23 +112,19 @@ class search extends React.Component {
 
 
   render() {
-    const { foundSearch } = this.state;
+    const { foundSearch, comics } = this.state;
+    // if (this.state.loaded && !this.state.foundSearch) {
+    //   return (
+    //     <PreLoader />
+    //   )
+    // }
+    // else if (this.state.foundSearch) {
+      return (
 
-    if (this.state.loaded || !this.state.foundSearch) {
-      return (
-        <PreLoader /> 
-      )
-    }
-    else if (this.state.notFound) {
-      return (
-        <NotFound />
-      )
-    }
-  
-    else if (this.state.foundSearch) {
-      return (
         <div className="searchBar">
+          {this.state.loaded ? <PreLoader /> : null}
           {this.state.logo ? <Logo /> : null}
+          {this.state.notFound ? <NotFound /> : null}
           <form>
             <div>
               <Container>
@@ -132,16 +134,13 @@ class search extends React.Component {
                       <p className="charName">{char.name} </p>
                       <a href={char.urls[1].url}><img src={char.thumbnail.path + "/detail.jpg"} />
                       </a>
-
                       {"\n"}
                       <p className="charDetails"> {char.description} </p>
                       <br />
-                      <p className="charDetails"> {char.name}  has appeared in {char.comics.available} different Marvel comics.</p>
-
+                      <Comics comics={comics} />
                     </Col>))}
-                    </Row>
+                </Row>
               </Container>
-              <Comics />
               <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                   <InputGroup.Text id="basic-addon1">Character Search</InputGroup.Text>
@@ -159,9 +158,10 @@ class search extends React.Component {
           </form>
         </div>
       )
-    }
+    
   }
-}
+  }
+
 
 
 

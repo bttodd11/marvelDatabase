@@ -17,7 +17,7 @@ class NotFound extends React.Component {
           <div>
             <button className="buttonLoad">
             <img src={notFoundImage} className="notFoundImage" alt="Logo" />
-              <p className="preLoader"> Character  Not Found </p>
+              <p className="notFoundLoader"> Character  Not Found </p>
             </button>
           </div>
         </div>
