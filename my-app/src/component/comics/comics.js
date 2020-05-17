@@ -1,42 +1,57 @@
 import React from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import template from "./comics.jsx";
-import Search from '../search/Search.js';
+import './comics.css';
 
 
 class comics extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); 
+    this.state = {
+      foundComic: [],
+      comicsLoaded: null,
+    }
     this.updateComics = this.updateComics.bind(this);
+
   }
 
+componentDidMount(){
+  this.updateComics()
+}
 
-  updateComics = (id) => {
+
+updateComics(){
     const API = 'https://gateway.marvel.com/v1/public/characters/';
-    const charId = this.props.charId;
-    const key = 'tempKey&';
+    const charId = this.props.comics;
     const pubKey = 'd3c4d49ca5140158b141102b27d684ae&';
     const hash = '9674d68e3057ba20fef81d98f535e7eb&limit=100';
     const date = '1&';
-    let url = API + charId + key + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash;
-  }
+    const comicUrl = API + charId + '/comics?' +  'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash;
 
-
-
+    fetch(comicUrl)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          foundComic: result.data.results,
+        });
+      },
+      (error) => {
+     console.log("Error in updateComic")
+      }
+    )
+}
   render() {
-
-    const comics = this.props.comics;
-
-  
-
+    const { foundComic } = this.state;
+    console.log(foundComic)
     return (
-      <div className="">
+      <div>
         <Container>
           <Row>
-            {comics[0].map(item =>
-              (<Col md="4">
-                <p className="">{item.name} </p>
-              </Col>))}
+        {foundComic.map(com =>
+        (<Col md="3" className="foundComicsMap">
+          <p className="comicsDetail">{com.title}</p>
+          <img src={com.thumbnail.path + "/portrait_medium.jpg"} />
+        </Col>))}
           </Row>
         </Container>
       </div>

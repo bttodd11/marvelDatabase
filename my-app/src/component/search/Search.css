@@ -1,8 +1,14 @@
 .searchBar{
+    width: 100%;
+    text-align: center;
+}
+.charSearch{
     margin: auto;
     margin-top: 5%;
     width: 50%;
     text-align: center;
+    padding-bottom: 2%;
+
 }
 .buttonLoad{
     border: none; /* Remove borders */
@@ -24,7 +30,7 @@
     font-size: 20px;
     font-family: "Caveat", cursive;
 }
-img{
+.imgDetail{
     display: block;
     margin-left: auto;
     margin-right: auto;
