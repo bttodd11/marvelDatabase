@@ -2,11 +2,25 @@
    margin: auto !important;
    width: 100% !important;
 }
-.comicsDetail{
-   font-size: 20px;
-   font-family: 'Noto Sans', sans-serif;
-   padding-top: 2%;
-}
 .comicImageBorder{
    border: 1px solid black;
+}
+.comicImageBorder:hover{
+   transform: scale(2.5);
+   z-index: 9999;
+   position: relative;
+}
+@media (max-width: 418px){
+   .comicsDetail{
+      font-size: 14px;
+      font-family: 'Noto Sans', sans-serif;
+      padding-top: 2%;
+   }
+}
+@media (min-width: 420px){
+   .comicsDetail{
+      font-size: 20px;
+      font-family: 'Noto Sans', sans-serif;
+      padding-top: 2%;
+   }
 }

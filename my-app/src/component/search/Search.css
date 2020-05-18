@@ -1,67 +1,113 @@
-@media (max-width: 415px) { 
-    #basic-addon1 {
-      display: none;
+button {
+    -webkit-animation: glowing 1300ms infinite;
+    -moz-animation: glowing 1300ms infinite;
+    -o-animation: glowing 1300ms infinite;
+    animation: glowing 1300ms infinite;
+  }
+  @-webkit-keyframes glowing {
+  }
+  @keyframes glowing {
+    0% {
+      background-color: white;
+      box-shadow: 0 0 3px red;
     }
-  
-    .navbar-brand{
-      font-family: 'Gugi', cursive;
-      font-size: 15px;
-      letter-spacing: 5px;
-      padding-left: 20%;
+    50% {
+      background-color: white;
+      box-shadow: 0 0 15px red;
+    }
+    100% {
+      background-color: white;
+      box-shadow: 0 0 3px red;
     }
   }
 
-
-
-.searchBar{
+@media (max-width: 418px) {
+  #basic-addon1 {
+    display: none;
+  }
+  .searchBar {
     width: 100%;
     text-align: center;
-}
-.charSearch{
+  }
+  .navbar-brand {
+    font-family: "Gugi", cursive;
+    font-size: 15px;
+    letter-spacing: 5px;
+    padding-left: 20%;
+  }
+  .charSearch {
     margin: auto;
-    margin-top: 3%;
-    width: 40%;
+    margin-top: 35%;
+    width: 60%;
     text-align: center;
-    margin-bottom: 6%;
-}
-.buttonLoad{
-    border: none; /* Remove borders */
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 5%;
-    background-color: white;
-}
-.charName{
-    font-size: 60px;
+    margin-bottom: 15%;
+  }
+  .charName {
+    font-size: 50px;
     font-family: "Caveat", cursive;
     padding-top: 4%;
-}
-.charDetails{
-    font-size: 30px;
+    letter-spacing: 18px;
+    filter: blur(1.1rem);
+  }
+  .charDetails {
+    font-size: 20px;
     font-family: "Caveat", cursive;
     padding-bottom: 4%;
-}
-.imgDetail{
+  }
+  .imgDetail {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3%;
     width: 50%;
     border-radius: 50%;
-    }
-.marvel{
+  }
+}
+@media (min-width: 420px) {
+  .buttonLoad {
+    /* border: none; 
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 5%;
+    background-color: white; */
+  }
+  .searchBar {
+    width: 100%;
+    text-align: center;
+  }
+  .charSearch {
+    margin: auto;
+    margin-top: 3%;
+    width: 40%;
+    text-align: center;
+    margin-bottom: 6%;
+  }
+  .charName {
+    font-size: 60px;
+    font-family: "Caveat", cursive;
+    padding-top: 4%;
+  }
+  .charDetails {
+    font-size: 30px;
+    font-family: "Caveat", cursive;
+    padding-bottom: 4%;
+  }
+  .imgDetail {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+    width: 50%;
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition:         transform .8s ease-in-out;
+
+  }
+  .imgDetail:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  .marvel {
     margin-bottom: 100%;
+  }
 }
-button{
-    -webkit-animation: glowing 1300ms infinite;
-    -moz-animation: glowing 1300ms infinite;
-    -o-animation: glowing 1300ms infinite;
-    animation: glowing 1300ms infinite;
-}
-@-webkit-keyframes glowing {
-    }
-    @keyframes glowing {
-    0% { background-color: white; box-shadow: 0 0 3px red; }
-    50% { background-color: white; box-shadow: 0 0 15px red; }
-    100% { background-color: white; box-shadow: 0 0 3px red; }
-    }

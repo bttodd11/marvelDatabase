@@ -57,8 +57,6 @@ class search extends React.Component {
     const foundSearch = [];
     const comics = [];
     const url = this.state.url;
-    const totalLimit = this.state.totalLimit;
-    const offsetLimit = 5;
     const searchIndex = value.substr(0, 4)
     let searchUrl = url.replace("tempKey", searchIndex);
 

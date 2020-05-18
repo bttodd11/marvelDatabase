@@ -15,10 +15,10 @@ class NotFound extends React.Component {
       <div className="searchBar">
         <div>
           <div>
-            <button className="buttonLoad">
+            <a className="buttonLoad">
             <img src={notFoundImage} className="notFoundImage" alt="Logo" />
               <p className="notFoundLoader"> Character  Not Found </p>
-            </button>
+            </a>
           </div>
         </div>
       </div>

@@ -3,5 +3,9 @@
     width: 300px;
 }
 .notFoundLoader{
+    font-size: 60px;
+    font-family: "Caveat", cursive;
+    color: red;
+    opacity: .8;
     
 }

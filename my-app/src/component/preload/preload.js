@@ -14,11 +14,11 @@ class PreLoader extends React.Component {
     <div className="searchBar">
     <div>
       <div>
-        <button className="buttonLoad">
+        <a className="buttonLoad">
           {<img src={preLogo} className='preLogo' />}
           <br />
           <p className="preLoader">Searching Database</p>
-        </button>
+        </a>
       </div>
     </div>
   </div>
