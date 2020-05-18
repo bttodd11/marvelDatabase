@@ -1,14 +1,28 @@
+@media (max-width: 415px) { 
+    #basic-addon1 {
+      display: none;
+    }
+  
+    .navbar-brand{
+      font-family: 'Gugi', cursive;
+      font-size: 15px;
+      letter-spacing: 5px;
+      padding-left: 20%;
+    }
+  }
+
+
+
 .searchBar{
     width: 100%;
     text-align: center;
 }
 .charSearch{
     margin: auto;
-    margin-top: 5%;
-    width: 50%;
+    margin-top: 3%;
+    width: 40%;
     text-align: center;
-    padding-bottom: 2%;
-
+    margin-bottom: 6%;
 }
 .buttonLoad{
     border: none; /* Remove borders */
@@ -17,18 +31,15 @@
     padding-top: 5%;
     background-color: white;
 }
-.preLoader{
-    font-size: 50px;
-    font-family: "Caveat", cursive;
-    opacity: .5;
-}
 .charName{
-    font-size: 50px;
+    font-size: 60px;
     font-family: "Caveat", cursive;
+    padding-top: 4%;
 }
 .charDetails{
-    font-size: 20px;
+    font-size: 30px;
     font-family: "Caveat", cursive;
+    padding-bottom: 4%;
 }
 .imgDetail{
     display: block;
@@ -36,8 +47,21 @@
     margin-right: auto;
     margin-bottom: 3%;
     width: 50%;
-    border-radius: 25px;
+    border-radius: 50%;
     }
 .marvel{
     margin-bottom: 100%;
 }
+button{
+    -webkit-animation: glowing 1300ms infinite;
+    -moz-animation: glowing 1300ms infinite;
+    -o-animation: glowing 1300ms infinite;
+    animation: glowing 1300ms infinite;
+}
+@-webkit-keyframes glowing {
+    }
+    @keyframes glowing {
+    0% { background-color: white; box-shadow: 0 0 3px red; }
+    50% { background-color: white; box-shadow: 0 0 15px red; }
+    100% { background-color: white; box-shadow: 0 0 3px red; }
+    }

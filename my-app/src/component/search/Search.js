@@ -83,11 +83,7 @@ class search extends React.Component {
     this.setState({
       notFound: true,
       loaded: false,
-    })
-  
-  }
-
-
+    })}
 
   handleChange = (event) => {
     this.setState({
@@ -96,7 +92,6 @@ class search extends React.Component {
   }
 
   componentDidMount() {
-
     const API = 'https://gateway.marvel.com/v1/public/characters?nameStartsWith=';
     const key = 'tempKey&';
     const pubKey = 'd3c4d49ca5140158b141102b27d684ae&';
@@ -115,9 +110,7 @@ class search extends React.Component {
   render() {
     const { foundSearch } = this.state;
 
-    console.log(foundSearch)
     return (
-
       <div className="searchBar">
         {this.state.loaded ? <PreLoader /> : null}
         {this.state.logo ? <Logo /> : null}

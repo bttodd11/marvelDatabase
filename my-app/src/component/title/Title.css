@@ -1,8 +1,18 @@
-h1 {
-  font-size: 90px;
-  font-family: 'Gugi', cursive;
-  text-align: center;
+@media (max-width: 415px) { 
+  .navInfo {
+    display: none;
+  }
+
+  .navbar-brand{
+    font-family: 'Gugi', cursive;
+    font-size: 15px;
+    letter-spacing: 5px;
+    padding-left: 20%;
+  }
 }
+ 
+
+@media (min-width: 420px){
 .navInfo {
   font-size: 16px;
   font-family: 'Gugi', cursive;
@@ -13,4 +23,6 @@ h1 {
   font-family: 'Gugi', cursive;
   font-size: 20px;
   letter-spacing: 1px;
+} 
 }
+ 

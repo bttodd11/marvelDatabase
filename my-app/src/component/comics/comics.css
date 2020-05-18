@@ -4,7 +4,9 @@
 }
 .comicsDetail{
    font-size: 20px;
-   font-family: "Caveat", cursive;
+   font-family: 'Noto Sans', sans-serif;
    padding-top: 2%;
-
+}
+.comicImageBorder{
+   border: 1px solid black;
 }
