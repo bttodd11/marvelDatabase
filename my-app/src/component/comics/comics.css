@@ -6,20 +6,20 @@
    border: 1px solid black;
 }
 .comicImageBorder:hover{
-   transform: scale(2.5);
+   transform: scale(2.0);
    z-index: 9999;
    position: relative;
 }
 @media (max-width: 418px){
    .comicsDetail{
-      font-size: 14px;
+      font-size: 12px;
       font-family: 'Noto Sans', sans-serif;
-      padding-top: 2%;
+      padding-top: 4%;
    }
 }
 @media (min-width: 420px){
    .comicsDetail{
-      font-size: 20px;
+      font-size: 16px;
       font-family: 'Noto Sans', sans-serif;
       padding-top: 2%;
    }

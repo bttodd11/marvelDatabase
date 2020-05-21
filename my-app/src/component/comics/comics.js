@@ -46,7 +46,6 @@ updateComics(){
      console.log("Error in updateComic")
       }
     )
-    console.log(this.foundComic)
 }
   render() {
     const { foundComic } = this.state;

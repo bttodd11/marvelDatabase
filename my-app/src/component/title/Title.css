@@ -5,9 +5,10 @@
 
   .navbar-brand{
     font-family: 'Gugi', cursive;
-    font-size: 15px;
-    letter-spacing: 5px;
-    padding-left: 20%;
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin: auto 0;
+
   }
 }
  

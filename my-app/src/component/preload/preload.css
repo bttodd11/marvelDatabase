@@ -1,21 +1,3 @@
-.preLogo {
-    opacity: .3;
-    height: 250px;
-    animation-name: stretch;
-    animation-duration: 1.5s; 
-     animation-timing-function: ease-out; 
-     animation-delay: 0;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    animation-fill-mode: none;
-     animation-play-state: runnin
-}
-
-.preLoader{
-  font-size: 50px;
-  font-family: "Caveat", cursive;
-  opacity: .5;
-}
 
 @keyframes stretch {
     0% {
@@ -27,4 +9,47 @@
     100% {
         transform: scale(1.7);
     }
+  }
+
+  @media (max-width: 415px) { 
+    .preLogo {
+      opacity: .3;
+      height: 250px;
+      margin-top: 30%;
+      animation-name: stretch;
+      animation-duration: 1.5s; 
+       animation-timing-function: ease-out; 
+       animation-delay: 0;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-fill-mode: none;
+       animation-play-state: runnin
+  }
+  .preLoader{
+    font-size: 30px;
+    font-family: "Caveat", cursive;
+    opacity: .5;
+  }
+  }
+
+  @media (min-width: 420px){
+    .preLogo {
+      opacity: .3;
+      height: 250px;
+      animation-name: stretch;
+      animation-duration: 1.5s; 
+       animation-timing-function: ease-out; 
+       animation-delay: 0;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-fill-mode: none;
+       animation-play-state: runnin
+  }
+  .preLoader{
+    font-size: 50px;
+    font-family: "Caveat", cursive;
+    opacity: .5;
+  }
+
+
   }

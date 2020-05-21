@@ -1,5 +1,45 @@
+@keyframes stretch {
+
+  50% {
+      transform: scale(1.9);
+  }
+  100% {
+      transform: scale(2.5);
+  }
+}
+
+@media (max-width: 418px){
+  .preComicLoadText{
+    opacity: .3;
+    /* height: 250px; */
+    font: 80px;
+    margin-top: 8%;
+    font-family: "Caveat", cursive;
+    animation-name: stretch;
+    animation-duration: 1.5s; 
+     animation-timing-function: ease-out; 
+     animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+     animation-play-state: runnin
+ }
+}
+
+
+@media (min-width: 420px){
 .preComicLoadText{
-   font-size: 90px;
+   opacity: .9;
+   font: 320px;
+   margin-top: 8%;
    font-family: "Caveat", cursive;
-   opacity: .7;
+   animation-name: stretch;
+   animation-duration: 1.5s; 
+    animation-timing-function: ease-out; 
+    animation-delay: 0;
+   animation-direction: alternate;
+   animation-iteration-count: infinite;
+   animation-fill-mode: none;
+    animation-play-state: runnin
+}
 }

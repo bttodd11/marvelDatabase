@@ -1,6 +1,9 @@
+@media (max-width: 415px) { 
+
 .notFoundImage{
     height: 300px;
     width: 300px;
+    margin-top: 30%;
 }
 .notFoundLoader{
     font-size: 60px;
@@ -8,4 +11,19 @@
     color: red;
     opacity: .8;
     
+}
+}
+
+@media (min-width: 420px){
+    .notFoundImage{
+        height: 300px;
+        width: 300px;
+        margin-top: 10%;
+    }
+    .notFoundLoader{
+        font-size: 60px;
+        font-family: "Caveat", cursive;
+        color: red;
+        opacity: .8;
+}
 }

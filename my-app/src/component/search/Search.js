@@ -107,6 +107,7 @@ class search extends React.Component {
 
   render() {
     const { foundSearch } = this.state;
+    console.log(foundSearch)
 
     return (
       <div className="searchBar">
@@ -125,6 +126,9 @@ class search extends React.Component {
                     {"\n"}
                     <p className="charDetails"> {char.description} </p>
                     <br />
+                    <Button variant="secondary" className="reset">New Search </Button>{' '}
+                    <br />
+                    <br />
                     <Comics comics={char.id} />
                   </Col>))}
               </Row>
@@ -141,7 +145,7 @@ class search extends React.Component {
                 value={this.state.basicAddon1 ? this.state.basicAddon1 : ""}
               />
             </InputGroup>
-            <Button onClick={this.searchChar} variant="outline-danger">Search</Button>
+            <Button onClick={this.searchChar} variant="danger">Search</Button>
           </div>
         </form>
       </div>
