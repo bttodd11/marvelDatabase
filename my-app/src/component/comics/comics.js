@@ -23,6 +23,7 @@ componentDidMount(){
 }
 
 
+
 updateComics(){
     const API = 'https://gateway.marvel.com/v1/public/characters/';
     const charId = this.props.comics;
@@ -57,9 +58,10 @@ updateComics(){
           <Row>
         {foundComic.map(com =>
         (<Col md="3" className="foundComicsMap">
+
+
           <p className="comicsDetail">{com.title}</p>
-         <a href={com.urls[0].url}><img src={com.thumbnail.path + "/portrait_xlarge.jpg"} className="comicImageBorder" />
-         </a>
+         <img src={com.thumbnail.path + "/portrait_xlarge.jpg"}  className="comicImageBorder" />
         </Col>))}
           </Row>
         </Container>

@@ -38,7 +38,7 @@ button {
   }
   .charName {
     font-size: 50px;
-    font-family: "Caveat", cursive;
+    font-family: 'Cinzel', serif;
     padding-top: 4%;
     letter-spacing: 18px;
   }
@@ -68,6 +68,9 @@ button {
     padding-top: 5%;
     background-color: white; */
   }
+  .marvelPng {
+    height: 20px;
+  }
   .searchBar {
     width: 100%;
     text-align: center;
@@ -78,13 +81,13 @@ button {
   .charSearch {
     margin: auto;
     margin-top: 3%;
-    width: 40%;
+    width: 60%;
     text-align: center;
     margin-bottom: 6%;
   }
   .charName {
     font-size: 60px;
-    font-family: "Caveat", cursive;
+    font-family: 'Cinzel', serif;
     padding-top: 4%;
     text-align: center; 
    }
@@ -104,7 +107,6 @@ button {
     border-radius: 50%;
     -webkit-transition: -webkit-transform .8s ease-in-out;
     transition:         transform .8s ease-in-out;
-
   }
   .imgDetail:hover {
     -webkit-transform: rotate(360deg);

@@ -8,6 +8,7 @@ import NotFound from '../notfound/notfound.js';
 import PreLoader from '../preload/preload.js';
 import Logo from '../logo/logo.js'
 import Comics from '../comics/comics.js';
+import MarvelPng from '../search/img/marvel.png'
 
 
 
@@ -126,7 +127,7 @@ class search extends React.Component {
                     {"\n"}
                     <p className="charDetails"> {char.description} </p>
                     <br />
-                    <Button variant="secondary" className="reset">New Search </Button>{' '}
+                    <Button variant="secondary" className="reset">Reset </Button>{' '}
                     <br />
                     <br />
                     <Comics comics={char.id} />
@@ -135,7 +136,7 @@ class search extends React.Component {
             </Container>
             <InputGroup className="mb-3" className="charSearch">
               <InputGroup.Prepend>
-                <InputGroup.Text id="basic-addon1">Character Search</InputGroup.Text>
+                <InputGroup.Text id="basic-addon1"><img src={MarvelPng} className="marvelPng" /></InputGroup.Text>
               </InputGroup.Prepend>
               <FormControl ref={this.input}
                 placeholder="Character Name"
