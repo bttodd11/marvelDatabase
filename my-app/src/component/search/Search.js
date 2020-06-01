@@ -26,10 +26,13 @@ class search extends React.Component {
       logo: true,
       comics: [],
       totalLimit: null,
+      searchChar: true,
+      characterList: [],
     };
     this.searchChar = this.searchChar.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.fetchData = this.fetchData.bind(this);
+    this.reload = this.reload.bind(this);
   }
 
 
@@ -45,7 +48,6 @@ class search extends React.Component {
 
 
   searchChar = async () => {
-
     // Removing the logo and setting the preLoader 
     this.setState({
       loaded: true,
@@ -66,7 +68,6 @@ class search extends React.Component {
       dataFetchPromises.push(this.fetchData(searchUrl, 0));
       await Promise.all(dataFetchPromises)
 
-      console.log(this.state.data[0].data.results)
       for (let charName = 0; charName < this.state.data[0].data.results.length; charName++) {
         if (this.state.data[0].data.results[charName].name.toLowerCase().replace(/[\W]/g, "") == value.replace(/[\W]/g, "")) {
 
@@ -75,6 +76,7 @@ class search extends React.Component {
             foundSearch: foundSearch,
             loaded: false,
             comics: comics,
+            searchChar: false,
           })
           return;
         }
@@ -85,9 +87,28 @@ class search extends React.Component {
     })}
 
   handleChange = (event) => {
+  
     this.setState({
       basicAddon1: event.target.value
     });
+    // if(event.target.value.length > 2){
+    //   var characterSearchList = [];
+    //   const url = this.state.url;
+    //   const value = event.target.value;
+    //   const searchIndex = value.substr(0, event.target.value);
+    //   let searchUrl = url.replace("tempKey", searchIndex);
+
+    //   characterSearchList.push(this.fetchData(searchUrl, 0));
+    //   await Promise.all(characterSearchList);
+
+    //   this.setState({
+    //     characterList: characterSearchList,
+    //   })
+    }
+  
+
+  reload = () => {
+    window.location.reload();
   }
 
   componentDidMount() {
@@ -127,13 +148,16 @@ class search extends React.Component {
                     {"\n"}
                     <p className="charDetails"> {char.description} </p>
                     <br />
-                    <Button variant="secondary" className="reset">Reset </Button>{' '}
+                    <Button onClick={this.reload} variant="secondary" className="reset">Reset </Button>{' '}
                     <br />
                     <br />
                     <Comics comics={char.id} />
                   </Col>))}
               </Row>
             </Container>
+           
+           {this.state.searchChar ? 
+           <div>
             <InputGroup className="mb-3" className="charSearch">
               <InputGroup.Prepend>
                 <InputGroup.Text id="basic-addon1"><img src={MarvelPng} className="marvelPng" /></InputGroup.Text>
@@ -147,6 +171,8 @@ class search extends React.Component {
               />
             </InputGroup>
             <Button onClick={this.searchChar} variant="danger">Search</Button>
+            </div>
+            : null }
           </div>
         </form>
       </div>

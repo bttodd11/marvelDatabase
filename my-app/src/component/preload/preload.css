@@ -13,9 +13,8 @@
 
   @media (max-width: 415px) { 
     .preLogo {
-      opacity: .3;
       height: 250px;
-      margin-top: 30%;
+      margin-top: 20%;
       animation-name: stretch;
       animation-duration: 1.5s; 
        animation-timing-function: ease-out; 

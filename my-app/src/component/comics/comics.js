@@ -31,9 +31,7 @@ updateComics(){
     const hash = '9674d68e3057ba20fef81d98f535e7eb&limit=100';
     const date = '1&';
     const comicUrl = API + charId + '/comics?' +  'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash;
-
-    console.log(comicUrl)
-
+    
     fetch(comicUrl)
     .then(res => res.json())
     .then(
