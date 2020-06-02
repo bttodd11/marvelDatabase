@@ -1,5 +1,6 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
+import { Typeahead } from 'react-bootstrap-typeahead'; 
 import { Container, Row, Col } from 'react-bootstrap';
 import './Search.css';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -13,31 +14,29 @@ import MarvelPng from '../search/img/marvel.png'
 
 
 
-class search extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      basicAddon1: null,
-      data: [],
-      foundSearch: [],
-      url: null,
-      loaded: false,
-      notFound: false,
-      logo: true,
-      comics: [],
-      totalLimit: null,
-      searchChar: true,
-      characterList: [],
-    };
-    this.searchChar = this.searchChar.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.fetchData = this.fetchData.bind(this);
-    this.reload = this.reload.bind(this);
-  }
+const Search = () => {
+
+      const basicAddon1 = null;
+      const data = [];
+      const foundSearch = []
+      const url = null
+      let  loaded = false
+      const notFound = false
+      let logo = true;
+      const comics = []
+      const totalLimit = null
+      const characterList = []
+
+    // this.searchChar = this.searchChar.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.fetchData = this.fetchData.bind(this);
+    // this.filteredData = this.filteredData.bind(this)
+    // this.reload = this.reload.bind(this);
+  
 
 
 
-  fetchData = async (url, index) => {
+  const fetchData = async (url, index) => {
     await fetch(url + index * 100)
       .then(response => response.json())
       .then(result => {
@@ -47,7 +46,7 @@ class search extends React.Component {
         )}
 
 
-  searchChar = async () => {
+  const searchChar = async () => {
     // Removing the logo and setting the preLoader 
     this.setState({
       loaded: true,
@@ -63,8 +62,6 @@ class search extends React.Component {
     const searchIndex = value.substr(0, 4)
     let searchUrl = url.replace("tempKey", searchIndex);
 
-
-  
       dataFetchPromises.push(this.fetchData(searchUrl, 0));
       await Promise.all(dataFetchPromises)
 
@@ -86,54 +83,56 @@ class search extends React.Component {
       loaded: false,
     })}
 
-  handleChange = (event) => {
-  
+  const handleChange = (event) => {
     this.setState({
       basicAddon1: event.target.value
     });
-    // if(event.target.value.length > 2){
-    //   var characterSearchList = [];
-    //   const url = this.state.url;
-    //   const value = event.target.value;
-    //   const searchIndex = value.substr(0, event.target.value);
-    //   let searchUrl = url.replace("tempKey", searchIndex);
 
-    //   characterSearchList.push(this.fetchData(searchUrl, 0));
-    //   await Promise.all(characterSearchList);
+  }
 
-    //   this.setState({
-    //     characterList: characterSearchList,
-    //   })
+  const filteredData = async (event) => {
+    if (event.target.value.length > 2) {
+      var characterSearchList = [];
+      const url = this.state.url;
+      const value = event.target.value;
+      const searchIndex = value.substr(0, value.length);
+      let searchUrl = url.replace("tempKey", searchIndex);
+
+      characterSearchList.push(this.fetchData(searchUrl, 0));
+      await Promise.all(characterSearchList);
+
+      this.setState({
+        characterList: this.state.data[0].data.results,
+      })
+      console.log(this.state)
     }
+  } 
   
 
-  reload = () => {
+  const reload = () => {
     window.location.reload();
   }
 
-  componentDidMount() {
-    const API = 'https://gateway.marvel.com/v1/public/characters?nameStartsWith=';
-    const key = 'tempKey&';
-    const pubKey = 'd3c4d49ca5140158b141102b27d684ae&';
-    const hash = '9674d68e3057ba20fef81d98f535e7eb&limit=100';
-    const date = '1&';
-    const limit = '&limit=' + 100;
-    let url = API + key + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash + limit + '&offset='
+  // componentDidMount() {
+  //   const API = 'https://gateway.marvel.com/v1/public/characters?nameStartsWith=';
+  //   const key = 'tempKey&';
+  //   const pubKey = 'd3c4d49ca5140158b141102b27d684ae&';
+  //   const hash = '9674d68e3057ba20fef81d98f535e7eb&limit=100';
+  //   const date = '1&';
+  //   const limit = '&limit=' + 100;
+  //   let url = API + key + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash + limit + '&offset='
 
-    this.setState({
-      url: url,
-    })
-  }
+  //   this.setState({
+  //     url: url,
+  //   })
+  // }
 
 
 
-  render() {
-    const { foundSearch } = this.state;
-    console.log(foundSearch)
 
     return (
       <div className="searchBar">
-        {this.state.loaded ? <PreLoader /> : null}
+        {this.loaded ? <PreLoader /> : null}
         {this.state.logo ? <Logo /> : null}
         {this.state.notFound ? <NotFound /> : null}
         <form>
@@ -162,11 +161,15 @@ class search extends React.Component {
               <InputGroup.Prepend>
                 <InputGroup.Text id="basic-addon1"><img src={MarvelPng} className="marvelPng" /></InputGroup.Text>
               </InputGroup.Prepend>
+                  {/* <Typeahead
+                    onChange={this.filteredData} 
+                    options={this.state.characterList}
+                  /> */}
               <FormControl ref={this.input}
                 placeholder="Character Name"
                 aria-label="Character Name"
                 aria-describedby="basic-addon1"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.basicAddon1 ? this.state.basicAddon1 : ""}
               />
             </InputGroup>
@@ -178,10 +181,10 @@ class search extends React.Component {
       </div>
     )
 
-  }
-}
+                }
 
 
 
 
-export default search;
+
+export default Search;

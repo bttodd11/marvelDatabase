@@ -2,8 +2,7 @@ import React from "react";
 import './Title.css';
 import logo from './img/humanTorch.svg'
 
-class Title extends React.Component {
-  render() {
+const Title = () => {
     return (
       <div>
     <nav className="navbar navbar-light bg-light">
@@ -16,6 +15,6 @@ class Title extends React.Component {
       </div>
     )
   }
-}
+
 
 export default Title;

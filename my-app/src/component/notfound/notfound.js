@@ -2,14 +2,8 @@ import React from "react";
 import notFoundImage from './img/notFound.png'
 import './notfound.css';
 
-class NotFound extends React.Component {
+const NotFound = () => {
 
-  constructor(props) {
-    super(props);
-
-    };
-
-  render() {
     return (
       <div className="searchBar">
         <div>
@@ -23,5 +17,5 @@ class NotFound extends React.Component {
       </div>
         )
   }
-}
+
 export default NotFound;

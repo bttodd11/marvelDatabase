@@ -2,14 +2,8 @@ import React    from "react";
 import  "./preload.css";
 import preLogo from '../preload/img/loader.png'
 
-class PreLoader extends React.Component {
+const PreLoader = () => {
 
-    constructor(props) {
-      super(props);
-      };
-
-
-  render() {
     return(
     <div className="searchBar">
     <div>
@@ -24,6 +18,6 @@ class PreLoader extends React.Component {
   </div>
   )
   }
-}
+
 
 export default PreLoader;
