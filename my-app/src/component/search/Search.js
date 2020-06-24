@@ -16,12 +16,14 @@ import MarvelPng from '../search/img/marvel.png'
 
 const Search = () => {
 
+  // React Docs say to declare multiple state variables ???
   const [basicAddon1, setBasicAddon1] = useState(null);
   const [setUrl] = useState(null);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({data: []});
   const [characterList, setCharacterList] = useState([]);
   const [comics, setComics] = useState([]);
   const [foundSearch, setFoundSearch] = useState([]);
+  let [apiRequest, changeApiRequest ] = useState(false)
   let [loaded, setLoaded] = useState(false);
   let [notFound, setNotFound] = useState(false);
   let [logo, setLogo] = useState(true);
@@ -35,82 +37,62 @@ const Search = () => {
   let url = API + key + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash + limit + '&offset=';
 
 
-  const fetchData = async (url, index) => {
-    await fetch(url + index * 100)
+  const fetchData = (url, index) => {
+    fetch(url + index * 100)
       .then(response => response.json())
-      .then(result => 
-          setData({result})
-          )
-        }
+      .then(result =>
+        setData(result.data.results)
+      )
+      .catch(error =>
+        console.log("Data not returned" + error)
+      )
+  }
 
 
-  const searchChar = async () => {
-    // Removing the logo and setting the preLoader 
-
-    setLoaded(true);
-    setLogo(true)
-    setNotFound(false)
-   
-
-    var dataFetchPromises = [];
+  const searchChar = () => {
     let value = basicAddon1.toLowerCase();
-    const searchIndex = value.substr(0, 4)
+    const searchIndex = value.substr(0, 4);
     let searchUrl = url.replace("tempKey", searchIndex);
 
+    // Removing the logo and setting the preLoader.
+    setLoaded(true);
+    setLogo(false)
+    setNotFound(false)
+    changeApiRequest(true)
   
- 
-    dataFetchPromises.push(fetchData(searchUrl, 0));
-    await Promise.all(dataFetchPromises)
-
-    console.log(dataFetchPromises)
+    // Fetching the results from the API call.
+    fetchData(searchUrl, 0)
 
 
-  
-      console.log(data)
-    // for (let charName = 0; charName < data[0].data.results.length; charName++) {
-    //   if (data[0].data.results[charName].name.toLowerCase().replace(/[\W]/g, "") == value.replace(/[\W]/g, "")) {
+}
 
-    //     foundSearch.push(data[0].data.results[charName]);
-    //     setFoundSearch(foundSearch);
-    //     setLoaded(false);
-    //     setComics(comics);
-    //     return;
-    //   }
-    
-    
-    setNotFound(true)
-    setLoaded(false);
-  
-  }
   const handleChange = (event) => {
     setBasicAddon1(event.target.value)
   }
-  useEffect(() => {
-    fetchData();
-  });
-
-  // const filteredData = async (event) => {
-  //   if (event.target.value.length > 2) {
-  //     var characterSearchList = [];
-  //     const url = url;
-  //     const value = event.target.value;
-  //     const searchIndex = value.substr(0, value.length);
-  //     let searchUrl = url.replace("tempKey", searchIndex);
-
-  //     characterSearchList.push(fetchData(searchUrl, 0));
-  //     await Promise.all(characterSearchList);
-  //     setCharacterList(data[0].data.results);
-  //   }
-  // }
-
-
   const reload = () => {
     window.location.reload();
   }
 
+useEffect(() => {
+  if(apiRequest){
+    let value = basicAddon1.toLowerCase();
+    for (let charName = 0; charName < data.length; charName++) {
+      if (data[charName].name.toLowerCase().replace(/[\W]/g, "") == value.replace(/[\W]/g, "")) {
 
+        foundSearch.push(data[charName]);
+        setFoundSearch(foundSearch);
+        setLoaded(false);
+        setComics(comics);
+        return;
+      }
+      setNotFound(true)
+      setLoaded(false);
 
+    }
+  }
+  
 
+}, [data])
 
 
   return (
