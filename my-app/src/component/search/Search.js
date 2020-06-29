@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
-import { Typeahead } from 'react-bootstrap-typeahead';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Search.css';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -18,10 +17,7 @@ const Search = () => {
 
   // React Docs say to declare multiple state variables ???
   const [basicAddon1, setBasicAddon1] = useState(null);
-  const [setUrl] = useState(null);
   const [data, setData] = useState({data: []});
-  const [characterList, setCharacterList] = useState([]);
-  const [comics, setComics] = useState([]);
   const [foundSearch, setFoundSearch] = useState([]);
   let [apiRequest, changeApiRequest ] = useState(false)
   let [loaded, setLoaded] = useState(false);
@@ -38,6 +34,7 @@ const Search = () => {
 
 
   const fetchData = (url, index) => {
+    console.log(url)
     fetch(url + index * 100)
       .then(response => response.json())
       .then(result =>
@@ -59,11 +56,8 @@ const Search = () => {
     setLogo(false)
     setNotFound(false)
     changeApiRequest(true)
-  
     // Fetching the results from the API call.
     fetchData(searchUrl, 0)
-
-
 }
 
   const handleChange = (event) => {
@@ -78,20 +72,18 @@ useEffect(() => {
     let value = basicAddon1.toLowerCase();
     for (let charName = 0; charName < data.length; charName++) {
       if (data[charName].name.toLowerCase().replace(/[\W]/g, "") == value.replace(/[\W]/g, "")) {
-
         foundSearch.push(data[charName]);
         setFoundSearch(foundSearch);
         setLoaded(false);
-        setComics(comics);
+        console.log(foundSearch)
         return;
       }
-      setNotFound(true)
-      setLoaded(false);
-
     }
+        setNotFound(true)
+        setLoaded(false);
   }
-  
 
+ 
 }, [data])
 
 
@@ -106,20 +98,31 @@ useEffect(() => {
             <Row>
               {foundSearch.map(char =>
                 (<Col md="12">
-                  <p className="charName">{char.name} </p>
+                 <p className="charName">{char.name} </p>
                   <a href={char.urls[1].url}><img src={char.thumbnail.path + "/detail.jpg"} className="imgDetail" />
                   </a>
-                  {"\n"}
-                  <p className="charDetails"> {char.description} </p>
-                  <br />
+                   <div>
+                     <Container>
+                       <Row>
+                 <Col md="6">
+                  <p className="detailName">Biography</p>
+                  <p className="charDetails">{char.description} </p>
+                 </Col>
+                  <Col md="6">
+                    <div>
+                  <p className="detailName">Appearances</p>
+                  <p className="detailBio">Appeared in {char.stories.available} Marvel stories</p>
+                  <p className="detailBio">Appeared in {char.comics.available} Marvel comics</p>
+                  </div>
+                  </Col>
+                  </Row>
+                  </Container>
+                  </div>
                   <Button onClick={reload} variant="secondary" className="reset">Reset </Button>{' '}
-                  <br />
-                  <br />
-                  <Comics comics={char.id} />
+                  <Comics comics={char.collectionURI} />
                 </Col>))}
             </Row>
           </Container>
-
           {searchChar ?
             <div>
               <InputGroup className="mb-3" className="charSearch">

@@ -37,10 +37,10 @@ button {
     margin-bottom: 15%;
   }
   .charName {
-    font-size: 50px;
-    font-family: 'Cinzel', serif;
-    padding-top: 4%;
-    letter-spacing: 18px;
+    font-size: 90px;
+    font-family: 'Covered By Your Grace', cursive;
+    padding-top: 2%;
+    letter-spacing: 45px;
   }
   .charDetails {
     font-size: 12px;
@@ -50,6 +50,7 @@ button {
   .reset{
     display: inline-block;
     font-family: 'Noto Sans', sans-serif;
+    margin-bottom: 2%;
   }
   .imgDetail {
     display: block;
@@ -61,13 +62,6 @@ button {
   }
 }
 @media (min-width: 420px) {
-  .buttonLoad {
-    /* border: none; 
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 5%;
-    background-color: white; */
-  }
   .marvelPng {
     height: 20px;
   }
@@ -77,6 +71,7 @@ button {
   }
   .reset{
     font-family: 'Noto Sans', sans-serif;
+    margin-bottom: 3%;
   }
   .charSearch {
     margin: auto;
@@ -86,17 +81,28 @@ button {
     margin-bottom: 6%;
   }
   .charName {
-    font-size: 60px;
-    font-family: 'Cinzel', serif;
-    padding-top: 4%;
+    font-size: 90px;
+    font-family: 'Covered By Your Grace', cursive;
+    letter-spacing: 30px;
     text-align: center; 
    }
   .charDetails {
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Noto Sans', sans-serif;
-    width: 50%;
+    width: 90%;
     margin: auto;
     padding-bottom: 4%;
+  }
+  .detailName{
+    font-family: 'Cinzel', serif;
+    text-align: center; 
+    font-size: 28px;
+    letter-spacing: 5px;
+  }
+  .detailBio{
+    font-size: 16px;
+    margin-bottom: 5%;
+    font-family: 'Noto Sans', sans-serif;
   }
   .imgDetail {
     display: block;

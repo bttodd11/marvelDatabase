@@ -45,7 +45,8 @@
        animation-play-state: runnin
   }
   .preLoader{
-    font-size: 50px;
+    font-size: 70px;
+    padding-top: 5%;
     font-family: "Caveat", cursive;
     opacity: .5;
   }
