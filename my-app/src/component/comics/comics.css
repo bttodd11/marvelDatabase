@@ -1,9 +1,13 @@
 .foundComicsMap{
    margin: auto !important;
    width: 100% !important;
+   padding-top: 7%;
+}
+comicsOutline{
+   border-top: 4px solid black;
 }
 .comicImageBorder{
-   border: 1px solid black;
+   border: 3px solid black;
 }
 @media (max-width: 418px){
    .comicsDetail{
@@ -14,7 +18,7 @@
 }
 @media (min-width: 420px){
    .comicsDetail{
-      font-size: 16px;
+      font-size: 11px;
       font-family: 'Noto Sans', sans-serif;
       padding-top: 2%;
    }

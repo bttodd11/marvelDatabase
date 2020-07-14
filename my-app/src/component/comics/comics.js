@@ -19,25 +19,35 @@ const Comics = (comics) => {
 
 
   const fetchComicData = (comicUrl) => {
+    let selectedComics = [];
     fetch(comicUrl)
     .then(res => res.json())
     .then(result => 
-        setComics(result.data.results)
-    )
+        {
+          for(let index = 0; index < 9; index++){
+            let comicIndex = randomIndex(result.data.results.length)
+          selectedComics.push(result.data.results[comicIndex])
+          console.log(selectedComics)
+        }
+        setComics(selectedComics)
+      })
     .catch(error => 
      console.log(error)
      )
   }
 
+  const randomIndex = (length) => {
+    return Math.floor(Math.random() * length)
+  }
+
 
 useEffect (() =>{
-  fetchComicData(comicUrl);
-  if(foundComics.length > 0 && initialRender){
-    setComicsLoaded(false);
+  if(foundComics.length <=0 && initialRender){
+    fetchComicData(comicUrl);
     setInitialRender(false)
-    console.log("Times of render")
+    setComicsLoaded(false);
     console.log(foundComics)
-  }
+}
 },[foundComics])
 
 
@@ -48,7 +58,7 @@ useEffect (() =>{
         <Container>
           <Row>
         {foundComics.map(com =>
-        (<Col md="3" className="foundComicsMap">
+        (<Col md="4" className="foundComicsMap">
           <p className="comicsDetail">{com.title}</p>
          <img src={com.thumbnail.path + "/portrait_xlarge.jpg"}  className="comicImageBorder" />
         </Col>))}

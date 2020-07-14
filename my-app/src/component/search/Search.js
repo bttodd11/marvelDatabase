@@ -23,6 +23,7 @@ const Search = () => {
   let [loaded, setLoaded] = useState(false);
   let [notFound, setNotFound] = useState(false);
   let [logo, setLogo] = useState(true);
+  let [searchBar, removeSearchBar] = useState(true)
 
   const API = 'https://gateway.marvel.com/v1/public/characters?nameStartsWith=';
   const key = 'tempKey&';
@@ -75,11 +76,13 @@ useEffect(() => {
         foundSearch.push(data[charName]);
         setFoundSearch(foundSearch);
         setLoaded(false);
+        removeSearchBar(false)
         console.log(foundSearch)
         return;
       }
     }
         setNotFound(true)
+        removeSearchBar(true)
         setLoaded(false);
   }
 
@@ -119,11 +122,11 @@ useEffect(() => {
                   </Container>
                   </div>
                   <Button onClick={reload} variant="secondary" className="reset">Reset </Button>{' '}
-                  <Comics comics={char.collectionURI} />
+                  <Comics comics={char.resourceURI} />
                 </Col>))}
             </Row>
           </Container>
-          {searchChar ?
+          {searchBar ?
             <div>
               <InputGroup className="mb-3" className="charSearch">
                 <InputGroup.Prepend>
