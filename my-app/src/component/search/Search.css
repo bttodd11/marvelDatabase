@@ -41,6 +41,7 @@ button {
     font-size: 20px;
     letter-spacing: 5px;
     text-align: left;
+    padding-left: 2%;
   }
   .detailNameProfile{
     text-align: center;
@@ -60,9 +61,11 @@ button {
     margin-bottom: 9%;
   }
   .charDetails {
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: normal !important;
+    padding-right: 1px;
     font-family: 'Handlee', cursive;
+
   }
   .charDetails2{
     padding-top: 12%;
@@ -77,6 +80,7 @@ button {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 8%;
+    margin-top: 2%;
     width: 200px;
     height: 200px;
     border-radius: 15%;

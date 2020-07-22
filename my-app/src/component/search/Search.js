@@ -36,8 +36,8 @@ const Search = () => {
 
 
   const fetchData = (url, index) => {
-    console.log(url)
-    fetch(url + index * 100)
+    console.log(url + index * 100)
+    fetch(url + index * 100) 
       .then(response => response.json())
       .then(result =>
         setData(result.data.results)
@@ -93,6 +93,7 @@ useEffect(() => {
         setNotFound(true)
         removeSearchBar(true)
         setLoaded(false);
+        console.log(foundSearch)
   }
 
  
