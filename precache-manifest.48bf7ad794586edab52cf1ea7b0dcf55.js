@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8cd62d7f8fe52731e6cbba8876796ee2",
+    "revision": "699f6d196c1c3d19fe48a743a651f436",
     "url": "/marvelDatabase/index.html"
   },
   {
@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/marvelDatabase/static/css/2.17e5ed98.chunk.css"
   },
   {
-    "revision": "64d6b156ed0c11b014ea",
-    "url": "/marvelDatabase/static/css/main.6e3bdd00.chunk.css"
+    "revision": "e9561d1c4705c67a278c",
+    "url": "/marvelDatabase/static/css/main.a26d5567.chunk.css"
   },
   {
     "revision": "f4bcc0ed5054c4ec90f3",
     "url": "/marvelDatabase/static/js/2.6d44e9df.chunk.js"
   },
   {
-    "revision": "64d6b156ed0c11b014ea",
-    "url": "/marvelDatabase/static/js/main.3f2c1191.chunk.js"
+    "revision": "e9561d1c4705c67a278c",
+    "url": "/marvelDatabase/static/js/main.4c65e50a.chunk.js"
   },
   {
     "revision": "7a485da71e171b9409bf",
