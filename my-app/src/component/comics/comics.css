@@ -19,6 +19,11 @@
       height: 320px;
       z-index: 1;
    }
+   .featurePrint{
+      font-family: 'Permanent Marker', cursive;
+      font-size: 20px;
+      font-weight: bold;
+   }
    #container{
       perspective: 1000;
    }
@@ -77,6 +82,11 @@
       font-size: 12px;
       text-align: center;
       color: black !important;
+   }
+   .featuredPrint{
+      font-family: 'Permanent Marker', cursive;
+      font-size: 45px;
+      letter-spacing: 5px;
    }
    #container{
       position: relative;

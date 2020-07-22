@@ -52,7 +52,6 @@ let newDate = moment.utc(date).local();
 return ("date", newDate.format('MM/DD/YYYY'));
   }
 
-
   useEffect(() => {
     if (foundComics.length <= 0 && initialRender) {
       console.log("render")
@@ -68,6 +67,7 @@ return ("date", newDate.format('MM/DD/YYYY'));
     <div>
       {comicisLoaded ? <PreComicLoader /> : null}
      {displayComics ? null : <Container className="comicBorder">
+        <h1 className="featuredPrint">Featured Prints</h1>
         <Row>
           {foundComics.map(com =>
             (
