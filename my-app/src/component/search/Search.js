@@ -47,6 +47,12 @@ const Search = () => {
       )
   }
 
+  const enterPressed = (event) => {
+    if(event.key ==='Enter'){
+      event.preventDefault();
+      searchChar()
+    }  
+  }
 
   const searchChar = () => {
     let value = basicAddon1.toLowerCase();
@@ -81,7 +87,6 @@ useEffect(() => {
         setFoundSearch(foundSearch);
         setLoaded(false);
         removeSearchBar(false)
-        console.log(foundSearch)
         return;
       }
     }
@@ -137,15 +142,12 @@ useEffect(() => {
                 <InputGroup.Prepend>
                   <InputGroup.Text id="basic-addon1"><img src={MarvelPng} className="marvelPng" /></InputGroup.Text>
                 </InputGroup.Prepend>
-                {/* <Typeahead
-                    onChange={this.filteredData} 
-                    options={this.state.characterList}
-                  /> */}
                 <FormControl
                   placeholder="Character Name"
                   aria-label="Character Name"
                   aria-describedby="basic-addon1"
                   onChange={handleChange}
+                  onKeyPress={enterPressed }
                   value={basicAddon1 ? basicAddon1 : ""}
                 />
               </InputGroup>
