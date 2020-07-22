@@ -6,9 +6,10 @@
     font-family: 'Gugi', cursive;
     font-size: 25px;
     text-align: center;
-    letter-spacing: 6px;
+    letter-spacing: 9px;
     margin: auto 0;
-  }
+    font-weight: bold;
+    margin-left: 2%; }
 }
  
 
@@ -28,6 +29,5 @@
   margin: auto 0;
 
 }
-
 }
  

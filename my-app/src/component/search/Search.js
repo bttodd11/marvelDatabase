@@ -8,7 +8,8 @@ import NotFound from '../notfound/notfound.js';
 import PreLoader from '../preload/preload.js';
 import Logo from '../logo/logo.js'
 import Comics from '../comics/comics.js';
-import MarvelPng from '../search/img/marvel.png'
+import MarvelPng from '../search/img/marvel.png';
+import Diamond from '../search/img/diamond.png';
 
 
 
@@ -74,6 +75,9 @@ useEffect(() => {
     for (let charName = 0; charName < data.length; charName++) {
       if (data[charName].name.toLowerCase().replace(/[\W]/g, "") == value.replace(/[\W]/g, "")) {
         foundSearch.push(data[charName]);
+        if(foundSearch[0].description == ""){
+          foundSearch[0].description = "N/A"
+        }
         setFoundSearch(foundSearch);
         setLoaded(false);
         removeSearchBar(false)
@@ -90,6 +94,8 @@ useEffect(() => {
 }, [data])
 
 
+
+
   return (
     <div className="searchBar">
       {loaded ? <PreLoader /> : null}
@@ -101,28 +107,27 @@ useEffect(() => {
             <Row>
               {foundSearch.map(char =>
                 (<Col md="12">
-                 <p className="charName">{char.name} </p>
                   <a href={char.urls[1].url}><img src={char.thumbnail.path + "/detail.jpg"} className="imgDetail" />
                   </a>
-                   <div>
                      <Container>
                        <Row>
-                 <Col md="6">
-                  <p className="detailName">Biography</p>
-                  <p className="charDetails">{char.description} </p>
+                 <Col md={6} sm={12}>
+                   <div className="infoSection">
+                 <p className="detailName ">Name :  <span className="charDetails charDetailsName">{char.name} </span></p>
+                 <p className="detailName">Biography : <span className="charDetails">{char.description} </span></p>
+                 </div>
                  </Col>
-                  <Col md="6">
-                    <div>
-                  <p className="detailName">Appearances</p>
-                  <p className="detailBio">Appeared in {char.stories.available} Marvel stories</p>
-                  <p className="detailBio">Appeared in {char.comics.available} Marvel comics</p>
+                  <Col md={6} sm={12}>
+                    <div className="infoSection">
+                      <p className="detailName detailNameProfile">Features</p>
+                      <img src={Diamond} /> 
+                      <p className="charDetails charDetails2">{char.name} has been features in {char.comics.available} different comics and {char.series.available} different series.</p>
                   </div>
                   </Col>
                   </Row>
                   </Container>
-                  </div>
-                  <Button onClick={reload} variant="secondary" className="reset">Reset </Button>{' '}
                   <Comics comics={char.resourceURI} />
+                  <Button onClick={reload} variant="secondary" className="reset">Reset </Button>{' '}
                 </Col>))}
             </Row>
           </Container>

@@ -32,33 +32,61 @@ button {
   .charSearch {
     margin: auto;
     margin-top: 35%;
-    width: 60%;
+    width: 58%;
     text-align: center;
     margin-bottom: 15%;
   }
-  .charName {
-    font-size: 90px;
-    font-family: 'Covered By Your Grace', cursive;
-    padding-top: 2%;
-    letter-spacing: 45px;
+  .detailName{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    letter-spacing: 5px;
+    text-align: left;
+  }
+  .detailNameProfile{
+    text-align: center;
+  }
+  .charDetailsName{
+    font-size: 25px !important;
+    color: red;
+    font-family: 'Permanent Marker', cursive !important;
+  }
+  .infoSection{
+    background-color: #DEE3E3;
+    height: 325px;
+    margin-top: 5%;
+    border: 1px solid black;
+    box-shadow: -5px -5px 30px 5px black, 5px 5px 30px 5px #DEE3E3;
+    border-radius: 15px;
+    margin-bottom: 3%;
   }
   .charDetails {
-    font-size: 12px;
-    font-family: 'Noto Sans', sans-serif;
-    padding-bottom: 4%;
+    font-size: 15px;
+    letter-spacing: normal !important;
+    font-family: 'Handlee', cursive;
+  }
+  .charDetails2{
+    padding-top: 12%;
   }
   .reset{
     display: inline-block;
-    font-family: 'Noto Sans', sans-serif;
-    margin-bottom: 2%;
+    font-family: 'Permanent Marker', cursive;
+    margin-top: 5%;
   }
   .imgDetail {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3%;
-    width: 50%;
-    border-radius: 50%;
+    margin-bottom: 8%;
+    width: 200px;
+    height: 200px;
+    border-radius: 15%;
+    box-shadow: 5px 5px 20px black;
+  }
+  .detailNameProfile{
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 3%;
+    color: black;
   }
 }
 @media (min-width: 420px) {
@@ -70,53 +98,83 @@ button {
     text-align: center;
   }
   .reset{
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+    margin-top: 5%;
   }
   .charSearch {
     margin: auto;
     margin-top: 3%;
-    width: 60%;
+    width: 45%;
     text-align: center;
     margin-bottom: 6%;
   }
   .charName {
-    font-size: 90px;
-    font-family: 'Covered By Your Grace', cursive;
+    font-family: 'Shadows Into Light', cursive;
     letter-spacing: 30px;
     text-align: center; 
    }
   .charDetails {
-    font-size: 16px;
-    font-family: 'Noto Sans', sans-serif;
-    width: 90%;
-    margin: auto;
-    padding-bottom: 4%;
+    font-size: 18px;
+    letter-spacing: normal !important;
+    font-family: 'Handlee', cursive;
+    width: 100%;
+    padding: 3%;
+    font-weight: normal !important;
+    color: black;
+  }
+  .charDetailsName{
+    font-size: 35px !important;
+    color: red;
+    font-family: 'Permanent Marker', cursive;
   }
   .detailName{
-    font-family: 'Cinzel', serif;
-    text-align: center; 
-    font-size: 28px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
     letter-spacing: 5px;
+    font-weight: 100;
+    text-align: left;
+    padding: 2px;
+  }
+  .detailNameProfile{
+    text-align: center;
+    font-size: 28px;
+    padding-bottom: 3%;
+    color: black;
+  }
+  .charDetails2{
+    padding-top: 10%;
+    text-align: center;
   }
   .detailBio{
     font-size: 16px;
     margin-bottom: 5%;
     font-family: 'Noto Sans', sans-serif;
   }
+  .infoSection{
+    background-color: #D9CBCC;
+    height: 300px;
+    margin-top: 5%;
+    border: 3px solid black;
+    border-radius: 15px;
+    margin-bottom: 5%;
+    box-shadow: 5px 5px 10px;
+  }
   .imgDetail {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3%;
-    width: 50%;
-    border-radius: 50%;
+    height: 300px;
+    border: 4px solid black;
+    border-radius: 15%;
+    margin-top: 2%;
     -webkit-transition: -webkit-transform .8s ease-in-out;
     transition:         transform .8s ease-in-out;
+    box-shadow: 5px 5px 20px black;
   }
-  .imgDetail:hover {
+  /* .imgDetail:hover {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  }
+  } */
   .marvel {
     margin-bottom: 100%;
   }

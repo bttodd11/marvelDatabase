@@ -34,7 +34,7 @@
   @media (min-width: 420px){
     .preLogo {
       opacity: .3;
-      height: 250px;
+      height: 350px;
       animation-name: stretch;
       animation-duration: 1.5s; 
        animation-timing-function: ease-out; 

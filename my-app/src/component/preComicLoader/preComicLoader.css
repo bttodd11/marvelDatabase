@@ -12,7 +12,7 @@
   .preComicLoadText{
     opacity: .3;
     /* height: 250px; */
-    font: 80px;
+    /* font: 80px;
     margin-top: 8%;
     font-family: "Caveat", cursive;
     animation-name: stretch;
@@ -22,7 +22,7 @@
     animation-direction: alternate;
     animation-iteration-count: infinite;
     animation-fill-mode: none;
-     animation-play-state: runnin
+     animation-play-state: running; */
  }
 }
 
@@ -30,7 +30,8 @@
 @media (min-width: 420px){
 .preComicLoadText{
    opacity: .9;
-   font: 320px;
+   font-size: 80px;
+   letter-spacing: 3px;
    margin-top: 8%;
    font-family: "Caveat", cursive;
    animation-name: stretch;
@@ -40,6 +41,6 @@
    animation-direction: alternate;
    animation-iteration-count: infinite;
    animation-fill-mode: none;
-    animation-play-state: runnin
+    animation-play-state: running;
 }
 }

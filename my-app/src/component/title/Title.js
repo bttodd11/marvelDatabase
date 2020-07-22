@@ -7,7 +7,7 @@ const Title = () => {
       <div>
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand" href="#">
-      <img src={logo} width="1" height="45" className="d-inline-block align-left" alt=""/> Marvel Database
+      <img src={logo} width="1" height="45"  className="d-inline-block align-left" alt=""/> Marvel Database
        
      </a>
      <a className="navInfo">“Just because something works, doesn’t mean it can’t be improved.”</a>

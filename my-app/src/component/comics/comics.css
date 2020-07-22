@@ -1,10 +1,7 @@
 .foundComicsMap{
    margin: auto !important;
-   width: 100% !important;
+   /* width: 100% !important; */
    padding-top: 7%;
-}
-comicsOutline{
-   border-top: 4px solid black;
 }
 .comicImageBorder{
    border: 3px solid black;
@@ -12,20 +9,129 @@ comicsOutline{
 @media (max-width: 418px){
    .comicsDetail{
       font-size: 12px;
-      font-family: 'Noto Sans', sans-serif;
+      font-family: 'Permanent Marker', cursive;
       padding-top: 4%;
+      box-shadow: 5px 5px 20px black;
    }
+   #container{
+      position: relative;
+      margin: 10px auto;
+      width: 280px;
+      height: 320px;
+      z-index: 1;
+   }
+   #container{
+      perspective: 1000;
+   }
+   #cardContainer{
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: all 1.0s linear;
+      border-radius: 15px;
+   }
+    .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+    }
+    .face.back {
+      display: block;
+      transform: rotateY(180deg);
+      box-sizing: border-box;
+      padding: 5px;
+      text-align: center;
+      background-color: #D9CBCC;
+      border: 2px solid black;
+      border-radius: 15px;
+    }
+    .cardComicsDetail{
+       font-size: 14px;
+       color: black;
+
+    }
+    .cardComicsDescription{
+       font-size: 12px !important;
+       text-align: center;
+       color: black !important;
+       font-family: 'Shadows Into Light', cursive;
+    }
+   
+
 }
 @media (min-width: 420px){
    .comicsDetail{
-      font-size: 11px;
-      font-family: 'Noto Sans', sans-serif;
-      padding-top: 2%;
+      font-size: 16px;
+      font-family: 'Permanent Marker', cursive;
+      margin-top: 5%;
    }
-   .comicImageBorder:hover {
+   .comicBorder{
+      border: 3px solid black;
+      border-radius: 15px;
+      margin-top: 5%;
+      box-shadow: 5px 5px 20px black;
+      background-color: #D9CBCC;
+   }
+   .comicsDate{
+      font-size: 12px;
+      text-align: center;
+      color: black !important;
+   }
+   #container{
+      position: relative;
+      margin: 10px auto;
+      width: 280px;
+      height: 420px;
+      z-index: 1;
+   }
+   #container{
+      perspective: 1000;
+   }
+   #cardContainer{
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: all 1.0s linear;
+      border-radius: 15px;
+   }
+   #container:hover #cardContainer {
+      transform: rotateY(180deg);
+      box-shadow: -5px 5px 5px #aaa;
+    }
+    .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+    }
+    .face.back {
+      display: block;
+      transform: rotateY(180deg);
+      box-sizing: border-box;
+      padding: 5px;
+      text-align: center;
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 15px;
+    }
+    .cardComicsDetail{
+       font-size: 14px;
+       color: black;
+
+    }
+    .cardComicsDescription{
+       font-size: 12px !important;
+       text-align: center;
+       color: black !important;
+       font-family: 'Shadows Into Light', cursive;
+    }
+   /* .comicImageBorder:hover {
       transform: scale(2.0);
       z-index: 9999;
       position: relative;
-   }
+   } */
 
 }
