@@ -126,7 +126,7 @@ useEffect(() => {
                   </Col>
                   </Row>
                   </Container>
-                  <Comics comics={char.resourceURI} />
+                  <Comics comics={char.id} />
                   <Button onClick={reload} variant="secondary" className="reset">Reset </Button>{' '}
                 </Col>))}
             </Row>

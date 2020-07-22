@@ -12,12 +12,12 @@ const Comics = (comics) => {
   const [initialRender, setInitialRender] = useState(true);
   const [displayComics, setComicsDisplay] = useState(true);
 
-  // const API = 'https://gateway.marvel.com/v1/public/characters/';
+  const API = 'https://gateway.marvel.com/v1/public/characters/';
   const charId = comics.comics;
   const pubKey = 'd3c4d49ca5140158b141102b27d684ae&';
   const hash = '9674d68e3057ba20fef81d98f535e7eb&limit=100';
   const date = '1&';
-  const comicUrl = charId + '/comics?' + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash;
+  const comicUrl = API + charId + '/comics?' + 'ts=' + date + 'apikey=' + pubKey + 'hash=' + hash;
 
 
   const fetchComicData = (comicUrl) => {
