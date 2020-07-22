@@ -12,6 +12,18 @@
       font-family: 'Permanent Marker', cursive;
       padding-top: 4%;
    }
+   .comicBorder{
+      border: 3px solid black;
+      border-radius: 15px;
+      margin-top: 20%;
+      box-shadow: 5px 5px 20px black;
+      background-color: #D9CBCC;
+   }
+   .featuredPrint{
+      font-family: 'Permanent Marker', cursive;
+      font-size: 25px;
+      letter-spacing: 5px;
+   }
    #container{
       position: relative;
       margin: 10px auto;
